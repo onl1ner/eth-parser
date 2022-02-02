@@ -24,4 +24,4 @@ After you run application you will be able to see three types of chart: Bar, Pie
 
 ## Example
 
-![](https://imgur.com/a/f9C5OyC)
+![](https://i.imgur.com/10nEa5k.png)
