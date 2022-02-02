@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const data = {
+          labels: {{ labels|safe }},
+          datasets: [
+                {
+                    label: "Richest accounts",
+                    data: {{ data }}
+                }
+          ]
+      };
+      const options = {
+        plugins: {
+            legend: {
+              display: false,
+            },
+        },
+        scales: {
+            y: {
+              beginAtZero: true,
+            },
+            x: {
+                ticks: {
+                    display: false
+                }
+            }
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div style="width: 33%">
+        <canvas id="pie-chart"></canvas>
+        <script>
+          const pieChart = new Chart(document.getElementById("pie-chart"), {
+            type: "pie",
+            data: data,
+            options: options,
+          });
+        </script>
+      </div>
+      <div style="width: 33%">
+        <canvas id="line-chart"></canvas>
+        <script>
+          const lineChart = new Chart(document.getElementById("line-chart"), {
+            type: "line",
+            data: data,
+            options: options,
+          });
+        </script>
+      </div>
+      <div style="width: 33%">
+        <canvas id="bar-chart"></canvas>
+        <script>
+          const barChart = new Chart(document.getElementById("bar-chart"), {
+            type: "bar",
+            data: data,
+            options: options,
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
